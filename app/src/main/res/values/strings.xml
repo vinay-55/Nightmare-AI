@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Nightmare AI</string>
+    <string name="login_subtitle">100% Offline Hackathon Pitch &amp; Code Truth-Verification System</string>
+    <string name="login_open_access_cta">Login</string>
+    <string name="login_google_cta">Continue with Google</string>
+    <string name="login_isolation_note">Zero-API local ML • Strictly isolated per account</string>
+
+    <string name="drawer_new_chat">+ New Chat</string>
+    <string name="drawer_about_you">About You</string>
+    <string name="drawer_library">Library</string>
+    <string name="drawer_master_chat">Master Chat</string>
+    <string name="drawer_new_master_chat">+ New Master Chat</string>
+    <string name="drawer_chats_header">Chats</string>
+    <string name="drawer_logout">Logout</string>
+    <string name="arrow_down">▼</string>
+    <string name="arrow_up">▲</string>
+
+    <string name="pitch_hint">Type or speak student pitch claims…</string>
+    <string name="send">Send</string>
+    <string name="attach_source">Attach</string>
+    <string name="voice_mic">Voice Pitch</string>
+    <string name="library_title">Artifact Library</string>
+    <string name="empty_library">No artifacts analyzed yet for this account.\nAttach a .zip, .apk, or folder in any chat.</string>
+    <string name="empty_chat_title">Ready for Truth Verification</string>
+    <string name="empty_chat_subtitle">1. Attach a local .zip, .apk, or code folder (parses immediately offline)\n2. Type or speak the student\'s pitch (pre-computes silently)\n3. Tap Send for instant Two-Section Truth vs. Lie breakdown</string>
+
+    <string name="section1_title">SECTION 1 — WHAT THE USER TALKED ABOUT</string>
+    <string name="section2_title">SECTION 2 — WHAT THE USER DIDN\'T TALK ABOUT</string>
+</resources>

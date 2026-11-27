@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="nightmare_bg">#0D1017</color>
+    <color name="nightmare_surface">#151A24</color>
+    <color name="nightmare_surface_elevated">#1D2432</color>
+    <color name="nightmare_stroke">#2B3447</color>
+
+    <color name="nightmare_primary">#7C5CFF</color>
+    <color name="nightmare_primary_variant">#5B3FE0</color>
+    <color name="nightmare_secondary">#00D4AA</color>
+
+    <color name="nightmare_text_primary">#F3F5F9</color>
+    <color name="nightmare_text_secondary">#9AA5B8</color>
+
+    <color name="verdict_truth_bg">#123828</color>
+    <color name="verdict_truth_fg">#34D399</color>
+    <color name="verdict_exag_bg">#3A290E</color>
+    <color name="verdict_exag_fg">#FBBF24</color>
+    <color name="verdict_lie_bg">#3E141B</color>
+    <color name="verdict_lie_fg">#F87171</color>
+    <color name="verdict_unverified_bg">#1F2937</color>
+    <color name="verdict_unverified_fg">#9CA3AF</color>
+</resources>

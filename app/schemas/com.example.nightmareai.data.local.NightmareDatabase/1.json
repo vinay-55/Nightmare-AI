@@ -1,0 +1,372 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "59cdf9040d7769829d1de0327f2ca1d2",
+    "entities": [
+      {
+        "tableName": "chat_threads",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `uuid` TEXT NOT NULL, `googleId` TEXT NOT NULL, `chatType` TEXT NOT NULL, `title` TEXT NOT NULL, `isPrimaryLargeCard` INTEGER NOT NULL, `metadataJson` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, `isDeleted` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "googleId",
+            "columnName": "googleId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "chatType",
+            "columnName": "chatType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isPrimaryLargeCard",
+            "columnName": "isPrimaryLargeCard",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "metadataJson",
+            "columnName": "metadataJson",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAt",
+            "columnName": "updatedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isDeleted",
+            "columnName": "isDeleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_chat_threads_uuid",
+            "unique": true,
+            "columnNames": [
+              "uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_chat_threads_uuid` ON `${TABLE_NAME}` (`uuid`)"
+          },
+          {
+            "name": "index_chat_threads_googleId_isDeleted_chatType_updatedAt",
+            "unique": false,
+            "columnNames": [
+              "googleId",
+              "isDeleted",
+              "chatType",
+              "updatedAt"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_chat_threads_googleId_isDeleted_chatType_updatedAt` ON `${TABLE_NAME}` (`googleId`, `isDeleted`, `chatType`, `updatedAt`)"
+          },
+          {
+            "name": "index_chat_threads_googleId_chatType_isPrimaryLargeCard_isDeleted",
+            "unique": false,
+            "columnNames": [
+              "googleId",
+              "chatType",
+              "isPrimaryLargeCard",
+              "isDeleted"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_chat_threads_googleId_chatType_isPrimaryLargeCard_isDeleted` ON `${TABLE_NAME}` (`googleId`, `chatType`, `isPrimaryLargeCard`, `isDeleted`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "chat_messages",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `uuid` TEXT NOT NULL, `threadId` INTEGER NOT NULL, `googleId` TEXT NOT NULL, `sender` TEXT NOT NULL, `content` TEXT NOT NULL, `twoSectionReportJson` TEXT, `timestamp` INTEGER NOT NULL, `isDeleted` INTEGER NOT NULL, FOREIGN KEY(`threadId`) REFERENCES `chat_threads`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "threadId",
+            "columnName": "threadId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "googleId",
+            "columnName": "googleId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sender",
+            "columnName": "sender",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "content",
+            "columnName": "content",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "twoSectionReportJson",
+            "columnName": "twoSectionReportJson",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isDeleted",
+            "columnName": "isDeleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_chat_messages_uuid",
+            "unique": true,
+            "columnNames": [
+              "uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_chat_messages_uuid` ON `${TABLE_NAME}` (`uuid`)"
+          },
+          {
+            "name": "index_chat_messages_threadId",
+            "unique": false,
+            "columnNames": [
+              "threadId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_chat_messages_threadId` ON `${TABLE_NAME}` (`threadId`)"
+          },
+          {
+            "name": "index_chat_messages_googleId_threadId_isDeleted_timestamp",
+            "unique": false,
+            "columnNames": [
+              "googleId",
+              "threadId",
+              "isDeleted",
+              "timestamp"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_chat_messages_googleId_threadId_isDeleted_timestamp` ON `${TABLE_NAME}` (`googleId`, `threadId`, `isDeleted`, `timestamp`)"
+          },
+          {
+            "name": "index_chat_messages_googleId_isDeleted_timestamp",
+            "unique": false,
+            "columnNames": [
+              "googleId",
+              "isDeleted",
+              "timestamp"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_chat_messages_googleId_isDeleted_timestamp` ON `${TABLE_NAME}` (`googleId`, `isDeleted`, `timestamp`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "chat_threads",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "threadId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "chat_sources",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `uuid` TEXT NOT NULL, `threadId` INTEGER NOT NULL, `googleId` TEXT NOT NULL, `sourceType` TEXT NOT NULL, `displayName` TEXT NOT NULL, `localUriString` TEXT NOT NULL, `extractedFactsJson` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `isDeleted` INTEGER NOT NULL, FOREIGN KEY(`threadId`) REFERENCES `chat_threads`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "threadId",
+            "columnName": "threadId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "googleId",
+            "columnName": "googleId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sourceType",
+            "columnName": "sourceType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "displayName",
+            "columnName": "displayName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localUriString",
+            "columnName": "localUriString",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "extractedFactsJson",
+            "columnName": "extractedFactsJson",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isDeleted",
+            "columnName": "isDeleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_chat_sources_uuid",
+            "unique": true,
+            "columnNames": [
+              "uuid"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_chat_sources_uuid` ON `${TABLE_NAME}` (`uuid`)"
+          },
+          {
+            "name": "index_chat_sources_threadId",
+            "unique": false,
+            "columnNames": [
+              "threadId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_chat_sources_threadId` ON `${TABLE_NAME}` (`threadId`)"
+          },
+          {
+            "name": "index_chat_sources_googleId_threadId_isDeleted_createdAt",
+            "unique": false,
+            "columnNames": [
+              "googleId",
+              "threadId",
+              "isDeleted",
+              "createdAt"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_chat_sources_googleId_threadId_isDeleted_createdAt` ON `${TABLE_NAME}` (`googleId`, `threadId`, `isDeleted`, `createdAt`)"
+          },
+          {
+            "name": "index_chat_sources_googleId_isDeleted_createdAt",
+            "unique": false,
+            "columnNames": [
+              "googleId",
+              "isDeleted",
+              "createdAt"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_chat_sources_googleId_isDeleted_createdAt` ON `${TABLE_NAME}` (`googleId`, `isDeleted`, `createdAt`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "chat_threads",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "threadId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '59cdf9040d7769829d1de0327f2ca1d2')"
+    ]
+  }
+}

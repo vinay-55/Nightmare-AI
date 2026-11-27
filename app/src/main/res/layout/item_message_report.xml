@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="6dp"
+    app:cardBackgroundColor="@color/nightmare_surface"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/nightmare_stroke"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <!-- Header Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTruthScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/nightmare_surface_elevated"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="84/100"
+                android:textColor="@color/nightmare_secondary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvOverallVerdict"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="VERIFIED"
+                android:textColor="@color/nightmare_text_primary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvLatencyBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4ms"
+                android:textColor="@color/nightmare_text_secondary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSummaryHeadline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/nightmare_text_secondary"
+            android:textSize="12sp" />
+
+        <!-- SECTION 1: WHAT THE USER TALKED ABOUT -->
+        <TextView
+            android:id="@+id/tvSection1Header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/section1_title"
+            android:textColor="@color/nightmare_primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/layoutClaimEvaluations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/tvClaimedPros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/verdict_truth_fg"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvClaimedCons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/verdict_lie_fg"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="10dp"
+            android:background="@color/nightmare_stroke" />
+
+        <!-- SECTION 2: WHAT THE USER DIDN'T TALK ABOUT -->
+        <TextView
+            android:id="@+id/tvSection2Header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section2_title"
+            android:textColor="@color/nightmare_secondary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvHiddenAdvantages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/verdict_truth_fg"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvHiddenDisadvantages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/verdict_exag_fg"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

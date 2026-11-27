@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nightmare_surface"
+    android:orientation="vertical"
+    android:padding="14dp">
+
+    <!-- 1. Top: + New Chat Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNewChat"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="start|center_vertical"
+        android:paddingHorizontal="14dp"
+        android:text="@string/drawer_new_chat"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/nightmare_primary"
+        app:cornerRadius="12dp" />
+
+    <!-- 2. Directly below New Chat: About You Button (GLOBAL_ABOUT_YOU) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAboutYou"
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:gravity="start|center_vertical"
+        android:paddingHorizontal="14dp"
+        android:text="@string/drawer_about_you"
+        android:textAllCaps="false"
+        android:textColor="@color/nightmare_text_primary"
+        android:textSize="14sp"
+        app:backgroundTint="@color/nightmare_surface_elevated"
+        app:cornerRadius="12dp" />
+
+    <!-- 3. Below About You: Library Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLibrary"
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:gravity="start|center_vertical"
+        android:paddingHorizontal="14dp"
+        android:text="@string/drawer_library"
+        android:textAllCaps="false"
+        android:textColor="@color/nightmare_text_primary"
+        android:textSize="14sp"
+        app:backgroundTint="@color/nightmare_surface_elevated"
+        app:cornerRadius="12dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="12dp"
+        android:background="@color/nightmare_stroke" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 4. Master Chat Collapsible Section with Down-Arrow Toggle (Starts GONE) -->
+            <LinearLayout
+                android:id="@+id/layoutMasterHeader"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="6dp">
+
+                <TextView
+                    android:id="@+id/tvMasterSectionTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/drawer_master_chat"
+                    android:textColor="@color/nightmare_text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvMasterArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="6dp"
+                    android:text="@string/arrow_down"
+                    android:textColor="@color/nightmare_secondary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutMasterCollapsible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp"
+                android:visibility="gone">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNewMasterChat"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/drawer_new_master_chat"
+                    android:textAllCaps="false"
+                    android:textColor="@color/nightmare_secondary"
+                    android:textSize="13sp"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/nightmare_stroke" />
+
+                <!-- Always 1 large Primary Master Chat card pinned at top of Master section -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardPrimaryMasterChat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:minHeight="82dp"
+                    app:cardBackgroundColor="@color/nightmare_surface_elevated"
+                    app:cardCornerRadius="14dp"
+                    app:strokeColor="@color/nightmare_primary"
+                    app:strokeWidth="1.5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <TextView
+                            android:id="@+id/tvPrimaryMasterBadge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PRIMARY MASTER AUDIT"
+                            android:textColor="@color/nightmare_secondary"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPrimaryMasterTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Primary Master Audit"
+                            android:textColor="@color/nightmare_text_primary"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPrimaryMasterSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Isolated workspace • Tap to open"
+                            android:textColor="@color/nightmare_text_secondary"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Additional smaller Master Chats (N Master Chats) -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSecondaryMasterChats"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:nestedScrollingEnabled="false" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="6dp"
+                android:background="@color/nightmare_stroke" />
+
+            <!-- 5. Bottom: Chats Section (Normal isolated chats via ListAdapter + DiffUtil) -->
+            <TextView
+                android:id="@+id/tvChatsHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                android:text="@string/drawer_chats_header"
+                android:textColor="@color/nightmare_text_secondary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvNormalChats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Account Session Footer -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/tvAccountLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="open_access_user"
+            android:textColor="@color/nightmare_text_secondary"
+            android:textSize="12sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:minWidth="0dp"
+            android:text="@string/drawer_logout"
+            android:textAllCaps="false"
+            android:textColor="@color/verdict_lie_fg"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

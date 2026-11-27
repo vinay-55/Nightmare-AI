@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/loginRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nightmare_bg"
+    android:padding="24dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardLogo"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        app:cardBackgroundColor="@color/nightmare_primary"
+        app:cardCornerRadius="22dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toTopOf="@id/tvAppTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="N"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tvAppTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/nightmare_text_primary"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tvSubtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardLogo" />
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="@string/login_subtitle"
+        android:textColor="@color/nightmare_text_secondary"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/btnLoginOpenAccess"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAppTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLoginOpenAccess"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/login_open_access_cta"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/nightmare_primary"
+        app:cornerRadius="14dp"
+        app:layout_constraintBottom_toTopOf="@id/btnGoogleSignIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGoogleSignIn"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/login_google_cta"
+        android:textAllCaps="false"
+        android:textColor="@color/nightmare_text_primary"
+        android:textSize="14sp"
+        app:cornerRadius="14dp"
+        app:layout_constraintBottom_toTopOf="@id/tvIsolationNote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLoginOpenAccess"
+        app:strokeColor="@color/nightmare_stroke" />
+
+    <TextView
+        android:id="@+id/tvIsolationNote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/login_isolation_note"
+        android:textColor="@color/nightmare_secondary"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnGoogleSignIn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
